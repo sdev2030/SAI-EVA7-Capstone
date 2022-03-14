@@ -10,7 +10,7 @@ we use multi-head attention module to check the cosine similarity between each o
 **Then we concatenate these maps with Res5 Block (WHERE IS THIS COMING FROM?)**
 Res5 block is coming from the input projection(conv2d layer with kernal size of 1, outdim equal to model dimension) of the feature map that is obtained from encoder backbone convolution model (ResNet50/101). 
 
-![Panoptic Head]()
+![Panoptic Head](https://github.com/sdev2030/SAI-EVA7-Capstone/blob/main/resource_imgs/arch-1.png)
 
 **Then we perform the above steps (EXPLAIN THESE STEPS)**
 After applying a high threshold of 0.85, we select  the top bboxes that would form as queries to the MultiHead attention block. This multi-head attention block also takes the object detection encoder output feature map. In the multi-head attention module we check the cosine similarity between each object embeddings and each pixel in the image to genrate the rough low resolution mask. This low resolution mask is further upsampled by the following CNN layers (with image feature map from encoder backbone) along with mask logits to get a clean object level mask. Then we perform pixel-wise argmax to get the final panoptic segmentation output.
