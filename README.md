@@ -21,10 +21,12 @@ After applying a high threshold of 0.85, we select  the top bboxes that would fo
 
 ## High-Level solution for Capstone Project:
 
-The given concrete defect detection [dataset](https://github.com/ZHANGKEON/DIS-YOLO) has images, defect labels with segmentation masks.
+The given concrete defect detection [dataset](https://github.com/ZHANGKEON/DIS-YOLO) has original images, defect labels with segmentation masks.
 
-First we have to convert segmentation masks to the Bounding box annotations using the code link specified in class notes. Then we need to add the classes for stuff (other  than the concrete defects)  as it is required for DETR panoptic segmentation task. Then we need to prepare the raw images with labelled masks for train, val and test datasets.
+First we have to convert segmentation masks to the Bounding box annotations using the code link specified in class notes. Then we need to add the classes for stuff (other  than the concrete defects)  as it is required for DETR panoptic segmentation task. Then we need to prepare the images in coco dataset format with labelled masks annoations json for train and validation datasets (80/20 split for train and val).
 
-Once we have the images, labels and the bounding box data, we have to first fine tune the backbone of the DETR object detection model for 20/30 epochs with low learning rate for backbone (1e-5) while the rest of the network will train for  another 200/300 epochs at a slight higher learning rate of 1e-3. Then we need to check the output of the trained model to confirm that the object detection with BBox prediction is working fine. if not adjust/check the data setup, model definitions, and training code to make sure that the object detection part of the DETR model works.
+Once we have the images, labels and the bounding box data in coco annotation format, we have to first fine tune the backbone of the DETR object detection model for 20/30 epochs with low learning rate for backbone (1e-5) while the rest of the network will train for another 100/200 epochs at a slight higher learning rate of 1e-3. Then we need to check the output of the trained model to confirm that the object detection with BBox prediction is working fine. if not adjust/check the data setup, model definitions, and training code to make sure that the object detection part of the DETR model works.
 
-Then we need to add the panoptic head to the model and freeze the object detection model. We train just the panoptic segmentation head head for 25 epochs to check that the panoptic segmentation outputs are predicted correctly.
+Then we need to add the panoptic head to the model and freeze the object detection model. We continue train just the panoptic segmentation head for 25 epochs to check that the panoptic segmentation outputs are predicted correctly.
+
+Finally we need to generate a grid output of 100 test images that shows the original image, ground truth image and the predicted panoptic segmentation image.
