@@ -30,3 +30,7 @@ Once we have the images, labels and the bounding box data in coco annotation for
 Then we need to add the panoptic head to the model and freeze the object detection model. We continue train just the panoptic segmentation head for 25 epochs to check that the panoptic segmentation outputs are predicted correctly.
 
 Finally we need to generate a grid output of 100 test images that shows the original image, ground truth image and the predicted panoptic segmentation image.
+
+## Part - 2
+
+** Please find [HERE](https://github.com/sdev2030/SAI-EVA7-Capstone/blob/main/Part2_BBoxPrediction_README.md) details for fine tuning DETR bbox model for concrete defect dataset.
