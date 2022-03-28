@@ -33,4 +33,4 @@ Finally we need to generate a grid output of 100 test images that shows the orig
 
 ## Part - 2
 
-** Please find [HERE](https://github.com/sdev2030/SAI-EVA7-Capstone/blob/main/Part2_BBoxPrediction_README.md) details for fine tuning DETR bbox model for concrete defect dataset.
+**Please find [HERE](https://github.com/sdev2030/SAI-EVA7-Capstone/blob/main/Part2_BBoxPrediction_README.md) details for fine tuning DETR bbox model for concrete defect dataset**
