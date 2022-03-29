@@ -57,7 +57,7 @@ Once the repo is downloaded, ensure --
 - pretrained DETR model is downloaded 
 	- the model can be downloaded form this [repo](https://github.com/facebookresearch/detr#model-zoo)
 	- once the model is downloaded, remove the class weights and save it. This will help us to utilize our list of custom defect classes instead of coco default classes.
-- fine tune the model for 25 epochs with low leaning rate of 1e-5 using the following command
+- fine tune the model for 25 epochs with low leaning rate of 1e-4 using the following command
 
 ```
 !python main.py \
