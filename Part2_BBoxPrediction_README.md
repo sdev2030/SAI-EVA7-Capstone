@@ -69,6 +69,8 @@ Once the repo is downloaded, ensure --
   --epochs 25
 ```
 
+Training logs are in the notebook and also found [here](https://github.com/sdev2030/SAI-EVA7-Capstone/blob/main/training_logs/bbox_training_log.txt) in a text file.
+
 ## Evaluation Results
 
 Following are the loss graphs, mAP and test image results.
